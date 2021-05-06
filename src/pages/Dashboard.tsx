@@ -9,7 +9,7 @@ import '../styles/Dashboard.css'
 
 
 export class Dashboard extends Component<{}> {
-    state = {transactions: [{date: "18 FEB 2020", time: "14:50", amount: "500 FRW"},{date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}]};
+    state = {transactions: [{date: "18 FEB 2020", time: "14:50", amount: "500 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}]};
 
     render() {
         return (
@@ -59,7 +59,7 @@ export class Dashboard extends Component<{}> {
                             </div>
                         </div>
                     </div>
-                    <div className="balance">
+                    <div className="balance custom-scroll pr-6">
                         <div className="title">
                             Today
                         </div>
