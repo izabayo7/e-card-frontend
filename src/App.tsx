@@ -1,20 +1,37 @@
 import React from 'react';
-import logo from './img/logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+import Dashboard from './pages/Dashboard'
 
 function App() {
   return (
-    <div className="App">
-      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
-        <div className="flex-shrink-0">
-          <img className="h-12 w-12" src={logo} alt="ChitChat Logo"></img>
-        </div>
-        <div>
-          <div className="text-xl font-medium text-black">ChitChat</div>
-          <p className="text-gray-500">You have a new message!</p>
-        </div>
-      </div>
-    </div>
+      <Router>
+          <div>
+              {/*<nav>*/}
+              {/*  <ul>*/}
+              {/*    <li>*/}
+              {/*      <Link to="/">Home</Link>*/}
+              {/*    </li>*/}
+              {/*    <li>*/}
+              {/*      <Link to="/about">About</Link>*/}
+              {/*    </li>*/}
+              {/*    <li>*/}
+              {/*      <Link to="/users">Users</Link>*/}
+              {/*    </li>*/}
+              {/*  </ul>*/}
+              {/*</nav>*/}
+
+              <Switch>
+                <Route path="/app">
+                  <Dashboard />
+                </Route>
+              </Switch>
+          </div>
+      </Router>
   );
 }
 
