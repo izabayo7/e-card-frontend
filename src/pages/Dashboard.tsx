@@ -6,12 +6,54 @@ import Input from '../components/Input';
 import Transaction from '../components/Transaction';
 import Background from '../img/background.svg'
 import '../styles/Dashboard.css'
+import axios from 'axios';
+// @ts-ignore
+import useSWR from "swr"
+
+const fetcher = (args:any) => fetch(args).then(res => res.json())
 
 
-export class Dashboard extends Component<{}> {
-    state = {transactions: [{date: "18 FEB 2020", time: "14:50", amount: "500 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}, {date: "19 FEB 2020", time: "12:50", amount: "300 FRW"}]};
+export const Dashboard = () => {
 
-    render() {
+const { data, error } = useSWR('http://localhost:8082/card/transactions/6094fbc72ade19b465521114', fetcher,{
+    refreshInterval:500
+})
+
+
+    if(!data) return <p>Loading....</p>
+    if(error) return <p>{{error}}</p>
+
+
+/*
+load_transactions(){
+    axios.get(`http://localhost:8080/card/transactions/6094fbc72ade19b465521114`)
+        .then(res => {
+            const transactions = res.data.map((obj: any) => {
+                return {
+                    date: obj.date,
+                    time: obj.time,
+                    amount: obj.amount
+                }
+            });
+            this.setState({transactions});
+        })
+}
+ */
+
+    //componentWillMount() {
+        // var ws = new WebSocket(`ws://127.0.0.1:8081`);
+        //
+        // window.onbeforeunload = function () {
+        //     ws.close();
+        // };
+        //
+        // ws.onmessage = function (message) {
+        //     console.info("Received message: ", message);
+        // };
+
+
+   //}
+
         return (
             <div className="Dashboard">
                 <div className="nav flex mt-6 mx-6">
@@ -52,7 +94,7 @@ export class Dashboard extends Component<{}> {
                                 Current balance
                             </div>
                             <div className="two">
-                                5,000
+                                {data.balance}
                             </div>
                             <div className="three">
                                 RWF
@@ -64,7 +106,7 @@ export class Dashboard extends Component<{}> {
                             Today
                         </div>
                         {
-                            this.state.transactions.map(e => {
+                            data.transactions.map((e:any) => {
                                 return (
                                     <div className="flex detail flex-row gap-x-24">
                                         <div className="date">{e.date}</div>
@@ -78,7 +120,7 @@ export class Dashboard extends Component<{}> {
                 </div>
             </div>
         )
-    }
+
 }
 
 export default Dashboard;
